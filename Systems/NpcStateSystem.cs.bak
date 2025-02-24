@@ -1,0 +1,200 @@
+using System;
+using System.Diagnostics;
+using Barebone.Contracts.StateMachine;
+using Barebone.Core;
+using Barebone.Managers;
+
+namespace Barebone.Systems;
+
+public class NpcStateSystem : StateManager<String>
+{
+  public NpcStateSystem()
+    {
+        // Initialize states
+        AddState(NpcState.Idle.ToString(), new NpcIdleState());
+        AddState(NpcState.Take.ToString(), new NpcTakeState());
+        AddState(NpcState.Talk.ToString(), new NpcTalktate());
+        AddState(NpcState.Use.ToString(), new NpcUseState());
+
+        // Set initial state
+        _currentStateKey = NpcState.Idle.ToString();
+        _currentState = _states[_currentStateKey];
+        _currentState.EnterState();
+
+        // Subscribe to events
+        EventManager.Current.OnNpcStateChange += NpcStateChange;
+    }
+
+    public void NpcStateChange(NpcState newState)
+    {
+        Update();
+        if (newState != _currentStateKey)
+        {
+            ChangeState(newState);
+        }
+    } 
+}
+
+public class NpcIdleState : State<String>
+{
+    public NpcIdleState() : base(NpcState.Idle.ToString()) { }
+
+    public override void EnterState()
+    {
+        Debug.WriteLine("Entering Idle State");
+    }
+
+    public override void ExitState()
+    {
+        Debug.WriteLine("Exiting Idle State");
+    }
+
+    public override void UpdateState()
+    {
+        Debug.WriteLine("Updating Idle State");
+    }
+
+    public override string GetNextState()
+    {
+        // Logic to determine the next state
+        return NpcState.Talk.ToString();
+    }
+
+    public override void OnTriggerEnter()
+    {
+        Debug.WriteLine("Idle State OnTriggerEnter");
+    }
+
+    public override void OnTriggerStay()
+    {
+        Debug.WriteLine("Idle State OnTriggerStay");
+    }
+
+    public override void OnTriggerExit()
+    {
+        Debug.WriteLine("Idle State OnTriggerExit");
+    }
+}
+
+public class NpcTakeState : State<NpcState>
+{
+    public NpcTakeState() : base(NpcState.Take) { }
+
+    public override void EnterState()
+    {
+        Debug.WriteLine("Entering Take State");
+    }
+
+    public override void ExitState()
+    {
+        Debug.WriteLine("Exiting Take State");
+    }
+
+    public override void UpdateState()
+    {
+        Debug.WriteLine("Updating Take State");
+    }
+
+    public override NpcState GetNextState()
+    {
+        // Logic to determine the next state
+        return NpcState.Talk;
+    }
+
+    public override void OnTriggerEnter()
+    {
+        Debug.WriteLine("Take State OnTriggerEnter");
+    }
+
+    public override void OnTriggerStay()
+    {
+        Debug.WriteLine("Take State OnTriggerStay");
+    }
+
+    public override void OnTriggerExit()
+    {
+        Debug.WriteLine("Take State OnTriggerExit");
+    }
+}
+
+public class NpcTalktate : State<NpcState>
+{
+    public NpcTalktate() : base(NpcState.Talk) { }
+
+    public override void EnterState()
+    {
+        Debug.WriteLine("Entering Talk State");
+    }
+
+    public override void ExitState()
+    {
+        Debug.WriteLine("Exiting Talk State");
+    }
+
+    public override void UpdateState()
+    {
+        Debug.WriteLine("Updating Talk State");
+    }
+
+    public override NpcState GetNextState()
+    {
+        // Logic to determine the next state
+        return NpcState.Use;
+    }
+
+    public override void OnTriggerEnter()
+    {
+        Debug.WriteLine("Talk State OnTriggerEnter");
+    }
+
+    public override void OnTriggerStay()
+    {
+        Debug.WriteLine("Talk State OnTriggerStay");
+    }
+
+    public override void OnTriggerExit()
+    {
+        Debug.WriteLine("Talk State OnTriggerExit");
+    }
+}
+
+public class NpcUseState : State<NpcState>
+{
+    public NpcUseState() : base(NpcState.Use) { }
+
+    public override void EnterState()
+    {
+        Debug.WriteLine("Entering Use State");
+    }
+
+    public override void ExitState()
+    {
+        Debug.WriteLine("Exiting Use State");
+    }
+
+    public override void UpdateState()
+    {
+        Debug.WriteLine("Updating Use State");
+    }
+
+    public override NpcState GetNextState()
+    {
+        // Logic to determine the next state
+        return NpcState.Idle;
+    }
+
+    public override void OnTriggerEnter()
+    {
+        Debug.WriteLine("Use State OnTriggerEnter");
+    }
+
+    public override void OnTriggerStay()
+    {
+        Debug.WriteLine("Use State OnTriggerStay");
+    }
+
+    public override void OnTriggerExit()
+    {
+        Debug.WriteLine("Use State OnTriggerExit");
+    }
+}

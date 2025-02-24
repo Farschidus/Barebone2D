@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XnaContent>
+	<Asset Type="Barebone.Core.GameAssets">
+      <Scenes>
+        <Item>
+          <Name>Bakery</Name>
+          <Background>
+            <Name>Bakery Bg</Name>
+            <SpriteTexture>Backgrounds/Bakery</SpriteTexture>
+            <Position>0 0</Position>
+            <LayerDepth>0.05</LayerDepth>
+          </Background>
+          <Npcs>
+            <Item>
+              <Name>Baker</Name>
+              <LayerDepth>0.2</LayerDepth>
+              <AnimationSprites>
+                <Item>
+                  <Name>Idle</Name>
+                  <Fps>12</Fps>
+                  <Delay>0</Delay>
+                  <LoopCount>-1</LoopCount>
+                  <RowFrameCount>6 6</RowFrameCount>
+                  <IsMoving>false</IsMoving>
+                  <MoveSpeed>0</MoveSpeed>
+                  <Destination>0 0</Destination>
+                  <Rectangle>1138 503 252 262</Rectangle>
+                  <SpriteFile>
+                    <Texture>Sprites/02-</Texture>
+                    <Width>252</Width>
+                    <Height>262</Height>
+                  </SpriteFile>
+                  <FramesRange>
+                    <StartNumber>5</StartNumber>
+                    <EndNumber>5</EndNumber>
+                  </FramesRange>
+                  <FileType>Joined</FileType>
+                  <AnimType>Linear</AnimType>
+                </Item>
+                <Item>
+                  <Name>Use</Name>
+                  <Fps>12</Fps>
+                  <Delay>1</Delay>
+                  <LoopCount>1</LoopCount>
+                  <RowFrameCount>6 6 6 6 6 5</RowFrameCount>
+                  <IsMoving>false</IsMoving>
+                  <MoveSpeed>0</MoveSpeed>
+                  <Destination>0 0</Destination>
+                  <Rectangle>1050 503 339 271</Rectangle>
+                  <SpriteFile>
+                    <Texture>Sprites/02-</Texture>
+                    <Width>339</Width>
+                    <Height>271</Height>
+                  </SpriteFile>
+                  <FramesRange>
+                    <StartNumber>3</StartNumber>
+                    <EndNumber>3</EndNumber>
+                  </FramesRange>
+                  <FileType>Joined</FileType>
+                  <AnimType>Linear</AnimType>
+                </Item>
+                <Item>
+                  <Name>Talk</Name>
+                  <Fps>5</Fps>
+                  <Delay>0</Delay>
+                  <LoopCount>3</LoopCount>
+                  <RowFrameCount>4 4</RowFrameCount>
+                  <IsMoving>false</IsMoving>
+                  <MoveSpeed>0</MoveSpeed>
+                  <Destination>0 0</Destination>
+                  <Rectangle>1128 505 260 260</Rectangle>
+                  <SpriteFile>
+                    <Texture>Sprites/02-</Texture>
+                    <Width>260</Width>
+                    <Height>260</Height>
+                  </SpriteFile>
+                  <FramesRange>
+                    <StartNumber>4</StartNumber>
+                    <EndNumber>4</EndNumber>
+                  </FramesRange>
+                  <FileType>Joined</FileType>
+                  <AnimType>Linear</AnimType>
+                </Item>
+              </AnimationSprites>
+            </Item>
+          </Npcs>
+          <Foregrounds>
+            <Item>
+              <Name>Table</Name>
+              <SpriteTexture>Foregrounds/Bakery-Table</SpriteTexture>
+              <Position>1000 665</Position>
+              <LayerDepth>0.8</LayerDepth>
+            </Item>
+            <Item>
+              <Name>CashRegister</Name>
+              <SpriteTexture>Foregrounds/Bakery-CashRegister</SpriteTexture>
+              <Position>1212 678</Position>
+              <LayerDepth>0.81</LayerDepth>
+            </Item>
+          </Foregrounds>
+        </Item>
+      </Scenes>
+  </Asset>
+</XnaContent>
