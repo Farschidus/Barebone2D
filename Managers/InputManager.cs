@@ -31,6 +31,9 @@ public class InputManager
     /// </summary>
     /// <returns></returns>
     public bool IsGamePaused { get => IsNewKeyPress(Keys.Escape); }
+    public bool IsMoveUpPressed { get => IsNewKeyPress(Keys.Up) || IsNewKeyPress(Keys.W); }
+    public bool IsMoveDownPressed { get => IsNewKeyPress(Keys.Down) || IsNewKeyPress(Keys.S); }
+    public bool IsSelectPressed { get => IsNewKeyPress(Keys.Space) || IsNewKeyPress(Keys.Enter); }
 
     private double timePassed;
     private double previousGameTime;
@@ -54,7 +57,6 @@ public class InputManager
 
         CheckMouseClick(gameTime);
     }
-
     /// <summary>
     /// Helper for checking if a key was newly pressed during this update.
     /// it will accept input from player one.

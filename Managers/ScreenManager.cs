@@ -126,6 +126,7 @@ public class ScreenManager : DrawableGameComponent
             //     FadeBackBufferToBlack(MathHelper.Lerp(1f - screen.TransitionAlpha, 1f, _pauseAlpha / 2));
             // }
         }
+
         _cursorManager.Draw(_spriteBatch);
 
         _spriteBatch.End();

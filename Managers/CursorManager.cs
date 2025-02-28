@@ -20,6 +20,8 @@ public class CursorManager
     }
     public void LoadContent(ContentManager content)
     {
+        //TODO: using dynamic enum gen using dictionary like ChatGPT example:
+        // var CursorTextureType = DynamicEnum.Create(new List<string> { "Pointer", "Talk", "Use" });
         _cursorTextures.Add(CursorTextureType.Pointer, content.Load<Texture2D>(Constants.Cursor_Pointer));
         _cursorTextures.Add(CursorTextureType.Interact, content.Load<Texture2D>(Constants.Cursor_Interact));
         _cursorTextures.Add(CursorTextureType.Talk, content.Load<Texture2D>(Constants.Cursor_Talk));

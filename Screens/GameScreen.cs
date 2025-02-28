@@ -37,7 +37,7 @@ public class GameScreen : Screen
 
         foreach (var npc in _scene.Npcs)
         {
-            var character = new GameObjects.Npc(npc.Name, npc.LayerDepth);
+            var character = new GameObjects.Npc(npc.Name, npc.LayerDepth, this);
             foreach (var animationSprite in npc.AnimationSprites)
             {
                 character.AddAnimation(new AnimationComponent(animationSprite, npc.LayerDepth, content));

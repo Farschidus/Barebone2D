@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "text": "Hello, traveler! What brings you here?",
+      "choices": [
+        { "text": "I'm looking for adventure.", "nextNodeId": 2 },
+        { "text": "Just passing by.", "nextNodeId": 4 }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Ah! A bold soul. Do you need a quest?",
+      "choices": [
+        { "text": "Yes, tell me more.", "nextNodeId": 3 },
+        { "text": "Not right now.", "nextNodeId": 4 }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "There's a cave nearby filled with treasure. Be careful!",
+      "choices": []
+    },
+    {
+      "id": 4,
+      "text": "Safe travels, stranger.",
+      "choices": []
+    }
+  ]
+}
