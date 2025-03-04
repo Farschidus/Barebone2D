@@ -17,7 +17,7 @@ public class AnimationSprite
     public Vector2 Destination;
     public Rectangle Rectangle;
     public SpriteFile SpriteFile;
-    public FrameRange FramesRange;
+    public FileRange FileRange;
     public AnimationFileType FileType;
     public AnimationType AnimType;
 }
@@ -34,7 +34,7 @@ public enum AnimationFileType
     Seprate
 }
 
-public struct FrameRange
+public struct FileRange
 {
     public int StartNumber { get; set; }
     public int EndNumber { get; set; }

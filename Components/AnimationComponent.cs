@@ -17,10 +17,10 @@ public class AnimationComponent : BaseComponent
     {
         IsLooping = !animationSprite.LoopCount.Equals(0);
         AnimationSprite = animationSprite;
-        TextureSpriteFiles = Enumerable.Range(animationSprite.FramesRange.StartNumber, animationSprite.FramesRange.EndNumber - animationSprite.FramesRange.StartNumber + 1)
+        TextureSpriteFiles = Enumerable.Range(animationSprite.FileRange.StartNumber, animationSprite.FileRange.EndNumber - animationSprite.FileRange.StartNumber + 1)
             .Select(i => new TextureSpriteFile
             {
-                Texture = content.Load<Texture2D>($"{animationSprite.SpriteFile.Texture}{i:000}"),
+                Texture = content.Load<Texture2D>($"{animationSprite.SpriteFile.Texture}{i:00}"),
                 Width = animationSprite.SpriteFile.Width,
                 Height = animationSprite.SpriteFile.Height
             })

@@ -13,19 +13,19 @@ using System.Text.Json;
 
 namespace Barebone.Screens;
 
-public class DialogueScreen : Screen
+public class SequenceScreen : Screen
 {
     private SpriteFont _spriteFont;
     private Texture2D _dialogueBgTexture;
     private int _dialogueHeight;
     private int _selectedChoice;
-    private Dictionary<int, DialogueNode> _dialogues = [];
-    private List<DialogueChoice> _choices = [];
-    private DialogueNode _currentNode;
+    private Dictionary<int, SequenceNode> _dialogues = [];
+    private List<DialogueOption> _choices = [];
+    private SequenceNode _currentNode;
     //TODO: implement hover on choice
     //private bool _isHoverOnChoice;
 
-    public DialogueScreen(string sceneName) : base($"Dialogues/{sceneName}")
+    public SequenceScreen(string objectName) : base($"Dialogues/{objectName}")
     {
         IsPopup = true;
         NoFadedBackBufferBlack = true;
@@ -88,11 +88,14 @@ public class DialogueScreen : Screen
     }
     public override void Update(GameTime gameTime)
     {
-        if (_spriteFont is null) return;
+        if (_currentNode.Dialogue is null || _spriteFont is null) return;
+
         _dialogueHeight = (_choices.Count == 0 ? 1 : _choices.Count) * _spriteFont.LineSpacing;
     }
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {   
+        if(_currentNode.Dialogue is null) return;
+
         spriteBatch.Draw(
                 _dialogueBgTexture,
                 new Rectangle(0, 0, ResolutionManager.ScreenRectangle.Width, _dialogueHeight),
@@ -106,7 +109,7 @@ public class DialogueScreen : Screen
 
             spriteBatch.DrawString(
                 _spriteFont,
-                _currentNode.Text,
+                _currentNode.Dialogue.Text,
                 new Vector2(Constants.DialogueBgOffset*2, Constants.DialogueBgOffset*2),
                 Color.White,
                 0,
@@ -135,14 +138,14 @@ public class DialogueScreen : Screen
     private void NextDialogue(int nextNodeId)
     {
         _currentNode = _dialogues[nextNodeId];
-        _choices = _currentNode.Choices;
+        _choices = _currentNode.Dialogue?.Choices ?? [];
         _selectedChoice = 0;
     }
-    private static Dictionary<int, DialogueNode> LoadDialogue(string fileName)
+    private static Dictionary<int, SequenceNode> LoadDialogue(string objectName)
     {
-        var jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Content", fileName + ".json");
+        var jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Content", objectName + ".json");
         var dialogueJson = File.ReadAllText(jsonFilePath);
-        var dialogueData = JsonSerializer.Deserialize<DialogueData>(dialogueJson, jsonSerializerOptions);
+        var dialogueData = JsonSerializer.Deserialize<SequenceData>(dialogueJson, jsonSerializerOptions);
         return dialogueData?.Nodes.ToDictionary(node => node.Id) ?? [];
     }
     private static readonly JsonSerializerOptions jsonSerializerOptions = new()

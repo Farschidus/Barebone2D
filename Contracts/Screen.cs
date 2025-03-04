@@ -44,6 +44,10 @@ public abstract class Screen(string name)
     /// </summary>
     public bool IsPopup { get; protected init; }
     /// <summary>
+    /// Prevents the screen manager to draw the faded back buffer black.
+    /// </summary>
+    public bool NoFadedBackBufferBlack { get; protected init; }
+    /// <summary>
     /// Indicates how long the screen takes to
     /// transition on when it is activated.
     /// </summary>

@@ -1,0 +1,62 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "actor": "Baker",
+      "animName": "walk",
+      "destination": { "x": 0, "y": 0 },
+      "dialogue": null
+    },
+    {
+      "id": 2,
+      "actor": "Baker",
+      "animName": "talk",
+      "destination": null,
+      "dialogue": {
+        "audio": "baker_hello",
+        "text": "Hello, traveler! What brings you here?",
+        "choices": [
+          { "text": "I'm looking for adventure.", "nextNodeId": 3 },
+          { "text": "Just passing by.", "nextNodeId": 5 }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "actor": "Player",
+      "animName": "talk",
+      "destination": null,
+      "dialogue": {
+        "audio": "Player_hello",
+        "text": "Ah! A bold soul. Do you need a quest?",
+        "choices": [
+          { "text": "Yes, tell me more.", "nextNodeId": 4 },
+          { "text": "Not right now.", "nextNodeId": 5 },
+          { "text": "StartOver.", "nextNodeId": 1 }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "actor": "Baker",
+      "animName": "talk",
+      "destination": null,
+      "dialogue": {
+        "audio": "Baker_hello",
+        "text": "There's a cave nearby filled with treasure. Be careful!",
+        "choices": []
+      }
+    },
+    {
+      "id": 5,
+      "actor": "Baker",
+      "animName": "talk",
+      "destination": null,
+      "dialogue": {
+        "audio": "Baker_hello",
+        "text": "Safe travels, stranger.",
+        "choices": []
+      }
+    }
+  ]
+}

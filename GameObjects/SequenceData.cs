@@ -5,19 +5,29 @@ using System.Collections.Generic;
 
 namespace Barebone.GameObjects;
 
-public class DialogueData
+public class SequenceData
 {
-    public List<DialogueNode> Nodes { get; set; }
+    public List<SequenceNode> Nodes { get; set; }
 }
 
-public class DialogueNode
+public class SequenceNode
 {
     public int Id { get; set; }
-    public string Text { get; set; }
-    public List<DialogueChoice> Choices { get; set; }
+    public string Actor { get; set; }
+    public string AnimName { get; set; }
+    public Vector2? Destination { get; set; }
+    public Dialogue Dialogue { get; set; }
 }
 
-public class DialogueChoice
+public class Dialogue
+{
+    public string Audio { get; set; }
+    public string Text { get; set; }
+    public List<DialogueOption> Choices { get; set; }
+}
+
+
+public class DialogueOption
 {
     public string Text { get; set; }
     public int NextNodeId { get; set; }

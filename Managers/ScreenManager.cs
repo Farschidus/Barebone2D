@@ -92,8 +92,7 @@ public class ScreenManager : DrawableGameComponent
                 continue;
             }
 
-            // If this is an active non-popup, inform any subsequent
-            // screens that they are covered by it.
+            // If this is an active non-popup, inform any subsequent screens that they are covered by it.
             if (screen.IsPopup)
             {
                 _popupScreenIsActive = true;
@@ -114,7 +113,7 @@ public class ScreenManager : DrawableGameComponent
         {
             if (screen.ScreenState == ScreenState.Hidden) continue;
           
-            if(screen.IsPopup)
+            if(screen.IsPopup && !screen.NoFadedBackBufferBlack)
             {
                 FadeBackBufferToBlack(screen.TransitionAlpha * 2 / 3);
             }

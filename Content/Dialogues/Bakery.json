@@ -2,7 +2,7 @@
   "nodes": [
     {
       "id": 1,
-      "text": "Hello, traveler! What brings you here?",
+      "text": "Hello, traveler! What brings you here? Hello, traveler! What brings you here? Hello, traveler! What brings you here?",
       "choices": [
         { "text": "I'm looking for adventure.", "nextNodeId": 2 },
         { "text": "Just passing by.", "nextNodeId": 4 }
@@ -13,7 +13,8 @@
       "text": "Ah! A bold soul. Do you need a quest?",
       "choices": [
         { "text": "Yes, tell me more.", "nextNodeId": 3 },
-        { "text": "Not right now.", "nextNodeId": 4 }
+        { "text": "Not right now.", "nextNodeId": 4 },
+        { "text": "StartOver.", "nextNodeId": 1 }
       ]
     },
     {

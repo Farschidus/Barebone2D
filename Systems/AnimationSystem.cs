@@ -92,7 +92,7 @@ public class AnimationSystem
         _isFrameSet = true;
         _frameIndex = frameIndex;
     }
-    public void Draw(GameTime gameTime, SpriteBatch spriteBatch, Rectangle? destRectangle, SpriteEffects spriteEffects)
+    public void Draw(GameTime gameTime, SpriteBatch spriteBatch, SpriteEffects spriteEffects, Rectangle? destRectangle = null)
     {
         if (_animationComponent == null || _animationComponent.AnimationSprite.RowFrameCount == null)
             throw new NotSupportedException("No Animation is currently playing or Animation is not initialized properly");
@@ -181,8 +181,9 @@ public class AnimationSystem
                 }
             }
         }
+
         // Calculate the source rectangle of the current frame.
-        Rectangle source = new Rectangle(_frameIndex * _textureSpriteFile.Width, _rowIndex * _textureSpriteFile.Height, _textureSpriteFile.Width, _textureSpriteFile.Height);
+        var source = new Rectangle(_frameIndex * _textureSpriteFile.Width, _rowIndex * _textureSpriteFile.Height, _textureSpriteFile.Width, _textureSpriteFile.Height);
         spriteBatch.Draw(_textureSpriteFile.Texture, destRectangle, source, Color.White, 0, _origin, spriteEffects, _animationComponent.LayerDepth);
     }
     private void DrawSeprateLinear(GameTime gameTime, SpriteBatch spriteBatch, Rectangle destRectangle, SpriteEffects spriteEffects)

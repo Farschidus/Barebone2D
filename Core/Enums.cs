@@ -1,5 +1,13 @@
 namespace Barebone.Core;
 
+public enum GameObjectType
+{
+    Npc,
+    Item,
+    Exit,
+    Player,
+    Particle,
+}
 public enum NpcState
 {
     Idle,
@@ -8,13 +16,13 @@ public enum NpcState
     Take
 }
 
-public enum ItractiveItemStates
+public enum ItractiveItemState
 {
     Init,
     Use,
 }
 
-public enum IventoryItemStates
+public enum IventoryItemState
 {
     Active,
     Pickup,

@@ -22,6 +22,9 @@
 #begin Dialogues/Bakery.json
 /copy:Dialogues/Bakery.json
 
+#begin Dialogues/Baker.json
+/copy:Dialogues/Baker.json
+
 #begin Fonts/Tahoma.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -41,7 +44,7 @@
 /processorParam:TextureFormat=Color
 /build:Backgrounds/Bakery.jpg
 
-#begin Sprites/02-003.png
+#begin Sprites/02-03.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -51,9 +54,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/02-003.png
+/build:Sprites/02-03.png
 
-#begin Sprites/02-004.png
+#begin Sprites/02-04.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -63,9 +66,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/02-004.png
+/build:Sprites/02-04.png
 
-#begin Sprites/02-005.png
+#begin Sprites/02-05.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -75,7 +78,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/02-005.png
+/build:Sprites/02-05.png
 
 #begin Foregrounds/Bakery-Table.png
 /importer:TextureImporter

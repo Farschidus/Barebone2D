@@ -30,10 +30,10 @@
                     <Width>252</Width>
                     <Height>262</Height>
                   </SpriteFile>
-                  <FramesRange>
+                  <FileRange>
                     <StartNumber>5</StartNumber>
                     <EndNumber>5</EndNumber>
-                  </FramesRange>
+                  </FileRange>
                   <FileType>Joined</FileType>
                   <AnimType>Linear</AnimType>
                 </Item>
@@ -52,10 +52,10 @@
                     <Width>339</Width>
                     <Height>271</Height>
                   </SpriteFile>
-                  <FramesRange>
+                  <FileRange>
                     <StartNumber>3</StartNumber>
                     <EndNumber>3</EndNumber>
-                  </FramesRange>
+                  </FileRange>
                   <FileType>Joined</FileType>
                   <AnimType>Linear</AnimType>
                 </Item>
@@ -74,10 +74,10 @@
                     <Width>260</Width>
                     <Height>260</Height>
                   </SpriteFile>
-                  <FramesRange>
+                  <FileRange>
                     <StartNumber>4</StartNumber>
                     <EndNumber>4</EndNumber>
-                  </FramesRange>
+                  </FileRange>
                   <FileType>Joined</FileType>
                   <AnimType>Linear</AnimType>
                 </Item>
