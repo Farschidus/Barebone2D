@@ -30,9 +30,9 @@ public class EventManager
         _screenGameObjects[objectName] = state;
     }
 
-    public void ExecuteDialogue(string objectName, Screen screen)
+    public static void ExecuteDialogue(IInteractiveObject interactiveObject, Screen screen)
     {
-        _screenGameObjects[objectName] = NpcState.Talk.ToString();
+        interactiveObject.UpdateState(NpcState.Talk.ToString());
         screen.ScreenManager.AddScreen(new DialogueScreen(screen.Name));
     }
 
@@ -42,10 +42,10 @@ public class EventManager
         screen.ScreenManager.AddScreen(GameScreen.InitNextScene(nextScene, screen.ScreenManager.Game.Content));
     }
 
-    public void ExecuteSequence(string objectName, Screen screen)
+    public static void ExecuteSequence(IInteractiveObject interactiveObject, Screen screen)
     {
-        _screenGameObjects[objectName] = NpcState.Talk.ToString();
-        screen.ScreenManager.AddScreen(new SequenceScreen(objectName));
+        interactiveObject.UpdateState(NpcState.Talk.ToString());
+        screen.ScreenManager.AddScreen(new SequenceScreen(interactiveObject.Name));
     }
     
 

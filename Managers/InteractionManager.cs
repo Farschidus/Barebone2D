@@ -6,18 +6,18 @@ namespace Barebone.Managers;
 
 public static class InteractionManager
 {
-    public static void Interact(GameObjectType type, string name, Rectangle gameObjectRect, InputManager input, Screen screen)
+    public static void Interact(IInteractiveObject interactiveObject, Rectangle gameObjectRect, InputManager input, Screen screen)
     {
         if(input.IsHover(gameObjectRect))
         {
             if(input.IsMouseClicked)
             {
 
-                ObjectClickIntraction(type, name, screen);
+                ObjectClickIntraction(interactiveObject, screen);
             }
             else
             {
-                ObjectHoverIntraction(type);
+                ObjectHoverIntraction(interactiveObject);
             }
         }
         else
@@ -26,9 +26,9 @@ public static class InteractionManager
         }
     }
 
-    private static void ObjectHoverIntraction(GameObjectType type)
+    private static void ObjectHoverIntraction(IInteractiveObject interactiveObject)
     {
-        switch (type)
+        switch (interactiveObject.Type)
         {
             case GameObjectType.Npc:
                 EventManager.Current.ChangeCursor(CursorTextureType.Talk);
@@ -44,18 +44,18 @@ public static class InteractionManager
                 break;
         }
     }
-    private static void ObjectClickIntraction(GameObjectType type, string objectName, Screen screen)
+    private static void ObjectClickIntraction(IInteractiveObject interactiveObject, Screen screen)
     {
-        switch (type)
+        switch (interactiveObject.Type)
         {
             case GameObjectType.Npc:
-                EventManager.Current.ExecuteSequence(objectName, screen);
+                EventManager.ExecuteDialogue(interactiveObject, screen);
                 break;
             case GameObjectType.Item:
-                EventManager.Current.Execute(objectName, CursorTextureType.Interact.ToString());
+                EventManager.Current.Execute(interactiveObject.Name, CursorTextureType.Interact.ToString());
                 break;
             case GameObjectType.Exit:
-                EventManager.ExecuteExit(objectName, screen);
+                EventManager.ExecuteExit(interactiveObject.Name, screen);
                 break;
             default:
                 break;

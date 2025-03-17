@@ -14,14 +14,14 @@ public class SequenceNode
 {
     public int Id { get; set; }
     public string Actor { get; set; }
-    public string AnimName { get; set; }
+    public string State { get; set; }
     public Vector2? Destination { get; set; }
     public Dialogue Dialogue { get; set; }
 }
 
 public class Dialogue
 {
-    public string Audio { get; set; }
+    public string VoiceOver { get; set; }
     public string Text { get; set; }
     public List<DialogueOption> Choices { get; set; }
 }

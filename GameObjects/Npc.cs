@@ -16,7 +16,6 @@ public class Npc(string name, float layerDepth, Screen screen) : IInteractiveObj
     public GameObjectType Type => GameObjectType.Npc;
 
 
-    private string _state;
     private readonly Screen _screen = screen;
     private AnimationComponent _currentAnimation;
     private readonly AnimationSystem _animationSystem = new();
@@ -26,22 +25,22 @@ public class Npc(string name, float layerDepth, Screen screen) : IInteractiveObj
     {
         if (!_animations.TryAdd(animation.Name, animation) || _currentAnimation is not null) return;
 
-        _state = animation.Name;
         _currentAnimation = animation;
         EventManager.Current.SetState(Name, animation.Name);
     }
 
+    public void UpdateState(string state)
+    {
+        _animations.TryGetValue(state, out _currentAnimation);
+    }
+
     public void HandleInput(InputManager input)
     {
-        InteractionManager.Interact(Type, Name, _currentAnimation.AnimationSprite.Rectangle, input, _screen);
+        InteractionManager.Interact(this, _currentAnimation.AnimationSprite.Rectangle, input, _screen);
     }
     public void Update(GameTime gameTime)
     {
-        if(EventManager.Current.GetState(Name, out _state))
-        {
-            _animations.TryGetValue(_state, out _currentAnimation);
-            _animationSystem.Play(_currentAnimation);
-        }
+        _animationSystem.Play(_currentAnimation);
     }
     public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
